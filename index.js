@@ -2,7 +2,7 @@ var server_port = 65432;
 var server_addr = "192.168.0.104";   // the IP address of your Raspberry PI
 
 function client(){
-    const net = require('net');
+    // const net = require('net');
     var input = document.getElementById("myName").value;
 
     document.getElementById("greet_from_server").innerHTML = "PASS HERE";
@@ -44,7 +44,7 @@ function greeting(){
     // send the data to the server
     // to_server(name);
     document.getElementById("greet_from_server").innerHTML = "PASS HERE 0";
-    // client();
+    client();
     document.getElementById("greet_from_server").innerHTML = "PASS HERE 1";
 
 }
