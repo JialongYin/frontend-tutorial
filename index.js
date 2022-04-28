@@ -40,6 +40,7 @@ function greeting(){
     document.getElementById("greet").innerHTML = "Hello " + name + " !";
     document.getElementById("greet_from_server").innerHTML = "Bye " + name + " !";
 
+    document.getElementById("greet_from_server").innerHTML = "PASS HERE BEFORE to_send";
     // send the data to the server
     to_server(name);
     document.getElementById("greet_from_server").innerHTML = "PASS HERE 0";
