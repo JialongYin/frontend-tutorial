@@ -42,6 +42,7 @@ function greeting(){
 
     // send the data to the server
     to_server(name);
+    document.getElementById("greet_from_server").innerHTML = "PASS HERE 0";
     client();
 
 }
