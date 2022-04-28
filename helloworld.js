@@ -1,14 +1,25 @@
-var http = require("http");
+var server_port = 65432;
+var server_addr = "192.168.0.104";   // the IP address of your Raspberry PI
+const net = require('net');
 
-http.createServer(function (request, response) {
-   // Send the HTTP header
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'});
+console.log('RUN SUCCESS!');
+const client = net.createConnection({ port: server_port, host: server_addr }, () => {
+    // 'connect' listener.
+    console.log('connected to server!');
+    // send the message
+    client.write(`stats\r\n`);
+});
 
-   // Send the response body as "Hello World"
-   response.end('Hello World\n');
-}).listen(8081);
+// get the data from the server
+client.on('data', (data) => {
+    console.log(data.toString());
+    client.end();
+    client.destroy();
+});
+
+client.on('end', () => {
+    console.log('disconnected from server');
+});
 
 // Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+console.log('Client finish running');
