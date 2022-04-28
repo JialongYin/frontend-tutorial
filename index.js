@@ -1,8 +1,8 @@
 var server_port = 65432;
 var server_addr = "192.168.0.104";   // the IP address of your Raspberry PI
+const net = require('net');
 
 function greeting(){
-    const net = require('net');
     var input = document.getElementById("myName").value;
 
     document.getElementById("greet_from_server").innerHTML = "PASS HERE";
@@ -32,18 +32,18 @@ function greeting(){
 
 }
 
-function client(){
-
-    // get the element from html
-    var name = document.getElementById("myName").value;
-    // update the content in html
-    document.getElementById("greet").innerHTML = "Hello " + name + " !";
-    // document.getElementById("greet_from_server").innerHTML = "Bye " + name + " !";
-
-    document.getElementById("greet_from_server").innerHTML = "PASS HERE BEFORE";
-    // send the data to the server
-    // to_server(name);
-    document.getElementById("greet_from_server").innerHTML = "PASS HERE 0";
-    document.getElementById("greet_from_server").innerHTML = "PASS HERE 1";
-
-}
+// function client(){
+//
+//     // get the element from html
+//     var name = document.getElementById("myName").value;
+//     // update the content in html
+//     document.getElementById("greet").innerHTML = "Hello " + name + " !";
+//     // document.getElementById("greet_from_server").innerHTML = "Bye " + name + " !";
+//
+//     document.getElementById("greet_from_server").innerHTML = "PASS HERE BEFORE";
+//     // send the data to the server
+//     // to_server(name);
+//     document.getElementById("greet_from_server").innerHTML = "PASS HERE 0";
+//     document.getElementById("greet_from_server").innerHTML = "PASS HERE 1";
+//
+// }
