@@ -6,10 +6,13 @@ function client(){
     var input = document.getElementById("myName").value;
 
     const client = net.createConnection({ port: server_port, host: server_addr }, () => {
+        document.getElementById("greet_from_server").innerHTML = "CREATE CONNECTION";
         // 'connect' listener.
         console.log('connected to server!');
         // send the message
         client.write(`${input}\r\n`);
+
+        document.getElementById("greet_from_server").innerHTML = "WRITE SUCCESS";
     });
 
     // get the data from the server
@@ -21,6 +24,7 @@ function client(){
     });
 
     client.on('end', () => {
+        document.getElementById("greet_from_server").innerHTML = "CLIENT END";
         console.log('disconnected from server');
     });
 
@@ -35,7 +39,7 @@ function greeting(){
     document.getElementById("greet").innerHTML = "Hello " + name + " !";
     document.getElementById("greet_from_server").innerHTML = "Bye " + name + " !";
 
-    // send the data to the server 
+    // send the data to the server
     to_server(name);
     client();
 
