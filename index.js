@@ -5,6 +5,7 @@ function client(){
     const net = require('net');
     var input = document.getElementById("myName").value;
 
+    document.getElementById("greet_from_server").innerHTML = "PASS HERE";
     const client = net.createConnection({ port: server_port, host: server_addr }, () => {
         document.getElementById("greet_from_server").innerHTML = "CREATE CONNECTION";
         // 'connect' listener.
