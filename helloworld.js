@@ -7,7 +7,7 @@ const client = net.createConnection({ port: server_port, host: server_addr }, ()
     // 'connect' listener.
     console.log('connected to server!');
     // send the message
-    client.write(`stats\r\n`);
+    client.write(`stats`);
 });
 
 // get the data from the server
